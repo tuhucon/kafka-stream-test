@@ -30,6 +30,7 @@ public class StringUpperProcessor implements Processor<String, String> {
             }
         }
         context.forward(key, value.toUpperCase());
+        context.commit();
     }
 
     @Override
