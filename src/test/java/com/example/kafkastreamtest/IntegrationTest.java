@@ -19,15 +19,7 @@ import java.util.Properties;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-public class IntegrationTest {
-    @ClassRule
-    public static EmbeddedKafkaCluster embeddedKafkaCluster =
-            EmbeddedKafkaCluster.provisionWith(EmbeddedKafkaClusterConfig.create()
-                    .provisionWith(EmbeddedKafkaConfig.create()
-                            .with(KafkaConfig$.MODULE$.LogDirsProp(), "/Users/lap01171/Desktop/kafka/")
-                            .build())
-                    .build());
-
+public class IntegrationTest extends IntegrationBase {
     @BeforeClass
     public static void init() {
         embeddedKafkaCluster.createTopic(TopicConfig.forTopic("source-test").build());

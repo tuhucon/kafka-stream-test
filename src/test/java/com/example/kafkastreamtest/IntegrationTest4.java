@@ -8,6 +8,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
+import scala.collection.generic.BitOperations;
 
 import java.util.List;
 import java.util.Properties;
@@ -17,15 +18,7 @@ import static org.junit.Assert.assertThat;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-public class IntegrationTest4 {
-    @ClassRule
-    public static EmbeddedKafkaCluster embeddedKafkaCluster =
-            EmbeddedKafkaCluster.provisionWith(EmbeddedKafkaClusterConfig.create()
-                    .provisionWith(EmbeddedKafkaConfig.create()
-                            .with(KafkaConfig$.MODULE$.LogDirsProp(), "/Users/lap01171/Desktop/kafka/")
-                            .build())
-                    .build());
-
+public class IntegrationTest4 extends IntegrationBase {
     @BeforeClass
     public static void init() {
         embeddedKafkaCluster.createTopic(TopicConfig.forTopic("source-test").build());
