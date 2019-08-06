@@ -1,25 +1,23 @@
 package com.example.kafkastreamtest;
 
 import kafka.server.KafkaConfig$;
-import kafka.tools.ConsoleProducer;
 import net.mguenther.kafka.junit.*;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.Serdes;
-import org.apache.kafka.streams.processor.To;
-import org.hamcrest.Matchers;
-import org.junit.*;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import static org.junit.Assert.*;
-import static org.hamcrest.Matchers.*;
-import java.util.Arrays;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.ClassRule;
+import org.junit.Test;
+
 import java.util.List;
 import java.util.Properties;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-public class IntegrationTest {
+public class IntegrationTest1 {
     @ClassRule
     public static EmbeddedKafkaCluster embeddedKafkaCluster =
             EmbeddedKafkaCluster.provisionWith(EmbeddedKafkaClusterConfig.create()
